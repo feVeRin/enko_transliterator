@@ -4,6 +4,7 @@
 
 - 주요 특징
     1. 기존 [MT5 기반 음역기](https://github.com/eunsour/engtokor-transliterator/tree/main)의 과도한 용량 (~1.2GB)과 느린 추론 속도를 개선합니다.
+        - 약 300MB의 경량화된 모델 사이즈와 더 나은 속도, 정확도의 영단어 음역 결과를 제공합니다. (아래 성능 비교 참고)
     2. 구조적으로는 MarianMT 번역 모델에 LoRA를 적용했습니다.
         - 해당 fine-tuned 모델은 [HuggingFace](https://huggingface.co/feVeRin/enko-transliteration)에서 다운로드할 수 있습니다.
 
@@ -51,4 +52,4 @@
 ## References
 
 - 본 프로젝트는 engtokor-transliterator에서 제공하는 [데이터셋](https://github.com/eunsour/engtokor-transliterator/tree/main)을 사용했습니다.
-- LoRA를 적용하기 위한 [Base 모델](https://huggingface.co/HPLT/translate-en-ko-v2.0-hplt_opus)은 HPLT의 opus-en-ko 모델을 사용했습니다.
+- LoRA 적용을 위한 [Base 모델](https://huggingface.co/HPLT/translate-en-ko-v2.0-hplt_opus)은 HPLT의 opus-en-ko 모델을 사용했습니다.
