@@ -52,4 +52,4 @@
 ## References
 
 - 본 프로젝트는 engtokor-transliterator에서 제공하는 [데이터셋](https://github.com/eunsour/engtokor-transliterator/tree/main)을 사용했습니다.
-- LoRA 적용을 위한 [Base 모델](https://huggingface.co/HPLT/translate-en-ko-v2.0-hplt_opus)은 HPLT의 opus-en-ko 모델을 사용했습니다.
+- LoRA 적용을 위한 [Base 모델](Neurora/opus-hplt-en-ko-v2.0)은 opus-hplt-en-ko 모델을 사용했습니다.
