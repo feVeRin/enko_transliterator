@@ -22,12 +22,14 @@ class LoRATrainer:
         self.peft_model.print_trainable_parameters()
 
     def data_split(self, data_path, test_size=0.2):
+        import pandas as pd
+
         from data.textdataset import TextDataset
         from sklearn.model_selection import train_test_split
-        import pandas as pd
 
         df = pd.read_csv(data_path, sep='\t')
         train_df, val_df = train_test_split(df, test_size=test_size, random_state=123)
+
         train_dataset = TextDataset(train_df, self.tokenizer)
         val_dataset = TextDataset(val_df, self.tokenizer)
 

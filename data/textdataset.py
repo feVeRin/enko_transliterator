@@ -1,13 +1,10 @@
 import torch
-# import pandas as pd
-
-# from transformers import MarianTokenizer
 
 
 class TextDataset:
     def __init__(self, data, tokenizer, max_length=64):
-        self.data = data  # pd.read_csv(data_path, sep='\t')
-        self.tokenizer = tokenizer  # MarianTokenizer.from_pretrained(tokenizer_path)
+        self.data = data
+        self.tokenizer = tokenizer
         self.max_length = max_length
 
     def __call__(self, features):
