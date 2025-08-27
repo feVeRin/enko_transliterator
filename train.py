@@ -5,7 +5,7 @@ from transformers import MarianMTModel, MarianTokenizer, TrainingArguments, Trai
 class LoRATrainer:
     '''
     LoRA Trainer class for fine-tuning MarianMTModel
-    
+
     Args:
         model_path: huggingface model path
     '''
@@ -19,7 +19,7 @@ class LoRATrainer:
     def set_lora(self, r=16, alpha=32, dropout=0.1):
         '''
         Set up LoRA configuration and apply it to the base model
-        
+
         Args:
             r: LoRA rank
             alpha: LoRA alpha
@@ -40,11 +40,11 @@ class LoRATrainer:
     def data_split(self, data_path, test_size=0.2):
         '''
         Load transliteration dataset and split into train/validation sets
-        
+
         Args:
             data_path: dataset file path
             test_size: split ratio
-        
+
         Returns:
             train_dataset: training dataset
             val_dataset: validation dataset
@@ -66,7 +66,7 @@ class LoRATrainer:
     def train(self, train_dataset, val_dataset, report_to='wandb', output_dir='./LoRA'):
         '''
         Fine-tune the base MarianMT model with LoRA
-        
+
         Args:
             train_dataset: training dataset
             val_dataset: validation dataset
