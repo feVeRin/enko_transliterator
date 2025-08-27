@@ -3,13 +3,29 @@ from transformers import MarianMTModel, MarianTokenizer, TrainingArguments, Trai
 
 
 class LoRATrainer:
-    def __init__(self, model_name='feVeRin/enko-transliteration'):
-        self.model_name = model_name
-        self.tokenizer = MarianTokenizer.from_pretrained(model_name)
-        self.model = MarianMTModel.from_pretrained(model_name)
+    '''
+    LoRA Trainer class for fine-tuning MarianMTModel
+    
+    Args:
+        model_path: huggingface model path
+    '''
+
+    def __init__(self, model_path='feVeRin/enko-transliteration'):
+        self.model_path = model_path
+        self.tokenizer = MarianTokenizer.from_pretrained(model_path)
+        self.base_model = MarianMTModel.from_pretrained(model_path)
         self.peft_model = None
 
     def set_lora(self, r=16, alpha=32, dropout=0.1):
+        '''
+        Set up LoRA configuration and apply it to the base model
+        
+        Args:
+            r: LoRA rank
+            alpha: LoRA alpha
+            dropout: LoRA dropout rate
+        '''
+
         lora_config = LoraConfig(
             task_type=TaskType.SEQ_2_SEQ_LM,
             r=r,
@@ -18,10 +34,22 @@ class LoRATrainer:
             target_modules=['q_proj', 'v_proj', 'k_proj', 'out_proj', 'fc1', 'fc2', 'lm_head'],
         )
 
-        self.peft_model = get_peft_model(self.model, lora_config)
+        self.peft_model = get_peft_model(self.base_model, lora_config)
         self.peft_model.print_trainable_parameters()
 
     def data_split(self, data_path, test_size=0.2):
+        '''
+        Load transliteration dataset and split into train/validation sets
+        
+        Args:
+            data_path: dataset file path
+            test_size: split ratio
+        
+        Returns:
+            train_dataset: training dataset
+            val_dataset: validation dataset
+        '''
+
         import pandas as pd
 
         from data.textdataset import TextDataset
@@ -35,7 +63,17 @@ class LoRATrainer:
 
         return train_dataset, val_dataset
 
-    def train(self, train_dataset, val_dataset, output_dir='./LoRA'):
+    def train(self, train_dataset, val_dataset, report_to='wandb', output_dir='./LoRA'):
+        '''
+        Fine-tune the base MarianMT model with LoRA
+        
+        Args:
+            train_dataset: training dataset
+            val_dataset: validation dataset
+            report_to: wandb logging (if you don't need, set it to 'None')
+            output_dir: saving directory
+        '''
+
         training_args = TrainingArguments(
             output_dir=output_dir,
             num_train_epochs=20,
@@ -55,7 +93,7 @@ class LoRATrainer:
             learning_rate=3e-4,
             gradient_accumulation_steps=2,
             fp16=True,
-            report_to='wandb',
+            report_to=report_to,
             dataloader_pin_memory=False,
             remove_unused_columns=False,
             run_name='Transliteration'

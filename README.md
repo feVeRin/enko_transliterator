@@ -39,7 +39,7 @@
         ```
 
     2. 모델 학습 (From scratch)
-        - wandb 계정이 필요할 수 있습니다
+        - Training 시 wandb와 연동됩니다. 불필요하다면 `train()` 함수에 `report_to=None`을 추가하세요.
 
         ```python
         from train import LoRATrainer
@@ -54,4 +54,4 @@
 ## References
 
 - 본 프로젝트는 engtokor-transliterator에서 제공하는 [데이터셋](https://github.com/eunsour/engtokor-transliterator/tree/main)을 사용했습니다.
-- LoRA 적용을 위한 [Base 모델](Neurora/opus-hplt-en-ko-v2.0)은 opus-hplt-en-ko 모델을 사용했습니다.
+- LoRA 적용을 위한 base 모델은 [opus-hplt-en-ko](Neurora/opus-hplt-en-ko-v2.0)를 사용했습니다.

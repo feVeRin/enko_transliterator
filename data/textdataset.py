@@ -2,6 +2,15 @@ import torch
 
 
 class TextDataset:
+    '''
+    Transliteration dataset class
+    
+    Args:
+        data: dataframe of transliteration dataset
+        tokenizer: Marian tokenizer 
+        max_length: maximum sequence length
+    '''
+    
     def __init__(self, data, tokenizer, max_length=64):
         self.data = data
         self.tokenizer = tokenizer
