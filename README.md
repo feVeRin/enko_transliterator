@@ -39,14 +39,16 @@
         ```
 
     2. 모델 학습 (From scratch)
+        - wandb 계정이 필요할 수 있습니다
 
         ```python
         from train import LoRATrainer
         from data.textdataset import TextDataset
 
-        transliterator = LoRATrainer()
-        transliterator.set_lora(r=16, alpha=32, dropout=0.1)
-        train_dataset, val_dataset = transliterator.data_split('./data/data.txt', 0.2)
+        trainer = LoRATrainer()
+        trainer.set_lora(r=16, alpha=32, dropout=0.1)
+        train_dataset, val_dataset = trainer.data_split('./data/data.txt', 0.2)
+        trainer.train(train_dataset, val_dataset)
         ```
 
 ## References
