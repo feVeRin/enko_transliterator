@@ -3,9 +3,12 @@
 본 프로젝트는 영단어를 한국어 발음으로 나타내는 transliteration (음역) task를 지원합니다.
 
 - 주요 특징
-    1. 기존 MT5 기반 음역기의 과도한 용량과 느린 추론 속도를 개선합니다.
+    1. 기존 [MT5 기반 음역기](https://github.com/eunsour/engtokor-transliterator/tree/main)의 과도한 용량 (~1.2GB)과 느린 추론 속도를 개선합니다.
     2. 구조적으로는 MarianMT 번역 모델에 LoRA를 적용했습니다.
         - 해당 fine-tuned 모델은 [HuggingFace](https://huggingface.co/feVeRin/enko-transliteration)에서 다운로드할 수 있습니다.
+
+- 성능 비교
+    ![image](./output.png)
 
 ## How to Start
 
@@ -24,7 +27,7 @@
 ## How to Use
 
 - 기본적으로 영단어를 해당하는 발음으로 음역합니다. (e.g. `english` -> `잉글리시`)
-    1. 영단어 음역
+    1. 영단어 음역 (Pre-trained model 사용)
 
         ```python
         from transliteration import Transliterator
@@ -34,7 +37,7 @@
         print(result)  # 로라 이즈 올 유 니드
         ```
 
-    2. 모델 학습
+    2. 모델 학습 (From scratch)
 
         ```python
         from train import LoRATrainer
