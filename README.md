@@ -1,21 +1,16 @@
 # English-to-Korean Transliterator | 영한 음역기
 
-<div align="center">
-[ENGLISH](README.md) | [KOREAN](docs/README.ko.md)
-</div>
+▶ README: [**ENGLISH**](README.md) | [KOREAN](docs/README.ko.md)
 
----
+This project focuses on the English-to-Korean transliteration task (e.g. `english` -> `잉글리시`). Specifically, this project accelerates inference speed and reduces the large model size (~1.2GB) of the previous [MT5-based Transliterator](https://github.com/eunsour/engtokor-transliterator/tree/main).
 
-This project focuses on the English-to-Korean transliteration task (e.g. `english` -> `잉글리시`).  
-Specifically, this project accelerates inference speed and reduces the large model size (~1.2GB) of the previous [MT5-based Transliterator](https://github.com/eunsour/engtokor-transliterator/tree/main)
-
-- Highlights
+- **Highlights**
     1. Providing lightweight model size (~400MB) with faster, accurate transliteration results.
         - Please check performance comparisons below.
     2. LoRA is applied to the MarianMT translation model.
         - The corresponding fine-tuned model is available in [HuggingFace](https://huggingface.co/feVeRin/enko-transliteration).
 
-- Performance Comparisons
+- **Performance Comparisons**
     ![image](./output.png)
 
 ## How to Start
