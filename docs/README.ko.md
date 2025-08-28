@@ -41,7 +41,7 @@
     ```
 
 2. 모델 학습 (From scratch)
-    - Training 시 wandb와 연동됩니다. 불필요하다면 `train()` 함수에 `report_to=None`을 추가하세요.
+    - Training 시 `wandb`와 연동됩니다. 불필요하다면 `train()` 함수에 `report_to=None`을 추가하세요.
 
     ```python
     from train import LoRATrainer
