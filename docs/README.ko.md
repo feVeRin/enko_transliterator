@@ -10,7 +10,8 @@
     2. 구조적으로는 MarianMT 번역 모델에 LoRA를 적용했습니다.
         - 해당 fine-tuned 모델은 [HuggingFace](https://huggingface.co/feVeRin/enko-transliteration)에서 다운로드할 수 있습니다.
 
-- **성능 비교**
+- **성능 비교**  
+
     ![image](../output.png)
 
 ## How to Start
