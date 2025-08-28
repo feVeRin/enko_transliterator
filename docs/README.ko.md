@@ -1,6 +1,6 @@
 # English-to-Korean Transliterator | 영한 음역기
 
-▶ README: [ENGLISH](../README.md) | [**KOREAN**](README.ko.md)
+▶ README: [ENGLISH](../README.md) | [**한국어**](README.ko.md)
 
 본 프로젝트는 영단어를 한국어 발음으로 나타내는 transliteration (음역) 작업을 지원합니다 (e.g. `english` -> `잉글리시`). 특히 기존 [MT5 기반 음역기](https://github.com/eunsour/engtokor-transliterator/tree/main)의 과도한 용량 (~1.2GB)과 느린 추론 속도를 개선합니다.
 
@@ -12,7 +12,7 @@
 
 - **성능 비교**  
 
-    ![image](../output.png)
+    ![image](output.png)
 
 ## How to Start
 
