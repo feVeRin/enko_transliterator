@@ -45,7 +45,6 @@
 
     ```python
     from train import LoRATrainer
-    from data.textdataset import TextDataset
 
     trainer = LoRATrainer()
     trainer.set_lora(r=16, alpha=32, dropout=0.1)
