@@ -23,7 +23,7 @@ class Transliterator(PreTrainedModel):
         self.lora_model = lora_model
 
     @classmethod
-    def from_pretrained(cls, model_path='feVeRin/enko-transliteration'):
+    def from_pretrained(cls, model_path='feVeRin/enko-transliterator'):
         '''
         Load the fine-tuned LoRA model
         

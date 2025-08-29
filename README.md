@@ -35,7 +35,7 @@ This project focuses on the English-to-Korean transliteration task (e.g. `englis
     ```python
     from transliteration import Transliterator
 
-    model = Transliterator.from_pretrained('feVeRin/enko-transliteration')
+    model = Transliterator.from_pretrained('feVeRin/enko-transliterator')
     result = model.transliterate('LORA IS ALL YOU NEED')
     print(result)  # 로라 이즈 올 유 니드
     ```
